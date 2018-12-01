@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Yugioh Information Sytem</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="mainContent">
+                <div id="form">
+                    <table>
+                        <tr>
+                            <td>Card Name:</td>
+                            <td><input type="text" id="cardName" onkeyup="setLbl()"></td>
+                        </tr>
+                        <tr>
+                            <td>Card Type:</td>
+                            <td>
+                                <select name="cardType" id="cardType">
+                                    <option value="monster">Monster</option>
+                                    <option value="ritual">Ritual</option>
+                                    <option value="fusion">Fusion</option>
+                                    <option value="spell">Spell</option>
+                                    <option value="trap">Trap</option>
+                                    <option value="synchro">Synchro</option>
+                                    <option value="xyz">Xyz</option>
+                                    <option value="link">Link</option>
+                                </select>
+                                <input type="checkbox" id="normalMonster" name="normalMonster">Normal Monster
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sub Type:</td>
+                            <td>
+                                <select name="subtype" id="subtype"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Attribute:</td>
+                            <td>
+                                <select name="attribute" id="attribute">
+                                    <option value="Light">Light</option>
+                                    <option value="Dark">Dark</option>
+                                    <option value="Fire">Fire</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Wind">Wind</option>
+                                    <option value="Earth">Earth</option>
+                                    <option value="Divine">Divine</option>
+                               </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Level:</td>
+                            <td>
+                                <select name="level" id="level">
+                                    <option value=0>0</option>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
+                                    <option value=6>6</option>
+                                    <option value=7>7</option>
+                                    <option value=8>8</option>
+                                    <option value=9>9</option>
+                                    <option value=10>0</option>
+                                    <option value=11>11</option>
+                                    <option value=12>12</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Rank:</td>
+                            <td>
+                                <select name="rank" id="rank">
+                                    <option value=0>0</option>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
+                                    <option value=6>6</option>
+                                    <option value=7>7</option>
+                                    <option value=8>8</option>
+                                    <option value=9>9</option>
+                                    <option value=10>0</option>
+                                    <option value=11>11</option>
+                                    <option value=12>12</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Link:</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="TopLeft" value="1">Top Left</td>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="TopCenter" value="1">Top Center</td>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="TopRight" value="1">Top Right</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="MiddleLeft" value="1">Middle Left</td>
+                                        <td></td>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="MiddleRight" value="1">Middle Right</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="BottomLeft" value="1">Bottom Left</td>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="BottomCenter" value="1">Bottom Center</td>
+                                        <td><input type="checkbox" onclick="initLinkPoints()" id="BottomRight" value="1">Bottom Right</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Trap/Spell Type:</td>
+                            <td>
+                                <select name="trapSpellType" id="trapSpellType"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Monster Race:</td>
+                            <td>
+                                <select name="monsterRace" id="monsterRace" ></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Picture URL:</td>
+                            <td><input type="file"></td>
+                        </tr>
+                        <tr>
+                            <td>Set ID:</td>
+                            <td><input class="smallInput" type="text" id="setIdA" onkeyup="setLbl()" maxlength="4">-<input class="smallInput" type="text" id="setIdB" onkeyup="setLbl()" maxlength="4"></td>
+                        </tr>
+                        <tr>
+                            <td>Pendulum Scale:</td>
+                            <td><input type="text" class="smallInput"  id="pendulumScale" onkeyup="setLbl()" maxlength="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Pendulum Description:</td>
+                            <td><textarea name="spelldescription" id="spelldescription" rows="2" onkeyup="setLbl()"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td><textarea name="description" id="description" rows="4" onkeyup="setLbl()"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>ATK / DEF:</td>
+                            <td><input class="smallInput" type="text" id="atk" onkeyup="setLbl()" maxlength="4">/<input class="smallInput" type="text" id="def" onkeyup="setLbl()" maxlength="4"></td>
+                        </tr>
+                        <tr>
+                            <td>Serial Number:</td>
+                            <td><input type="text" id="serialNum" onkeyup="setLbl()" maxlength="8"><button onclick="generateSerialNum()">Random</button></td>
+                        </tr>
+                        <td>
+                            <td></td>
+                            <td><button id="btnsave" onclick="saveCard();">Save</button></td>
+                        </td>
+                    </table>
+                </div>
+                <div id="card">
+                    <img id="cardBorder" src="img/borders/effect.png" alt="Card">
+                    <div id="lblCardName"></div>
+                    <div id="lblAttributes"></div>
+                    <div class="lblPendulumScale scaleleft"></div>
+                    <div class="lblPendulumScale scaleRight"></div>
+                    <div id="lblSpellDescription"></div>
+                    <div id="lblDescription"></div>
+                    <div id="lblAtk"></div>
+                    <div id="lblDef"></div>
+                    <div id="lblSerialNum"></div>
+                    <div id="lblSetNum" class="lblSetNum2"></div>
+                    <img id="cardAttribute" src="img/attributes/divine.png" alt="Attribute">
+                    <div id="lblLevel"></div>
+                    <div id="lblRank"></div>
+                    <div id="lblLink">
+                        <img id="linkTopCenter" src="img/lvl/lvl4.png">
+                        <img id="linkMidLeft" src="img/lvl/lvl4.png">
+                        <img id="linkMidRight" src="img/lvl/lvl4.png">
+                        <img id="linkBottomCenter" src="img/lvl/lvl4.png">
+                        <img id="linkTopLeft" src="img/lvl/lvl3.png">
+                        <img id="linkTopRight" src="img/lvl/lvl3.png">
+                        <img id="linkBottomLeft" src="img/lvl/lvl3.png">
+                        <img id="linkBottomRight" src="img/lvl/lvl3.png">
+                    </div>
+                    <div id="trapSpellTitle"></div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script>
+            var subTypeArr = ['', 'Divine', 'Gemini', 'Spirit', 'Toon', 'Tuner', 'Union', 'Pendulum'];
+            var monsterRaceArrr = ['Aqua', 'Beast', 'Beast-Warrior', 'Cyberse', 'Dinosaur', 'Dragon', 'Fairy', 'Fiend', 'Fish', 'Insect', 'Machine', 'Plant', 'Psychic', 'Pyro', 'Reptile', 'Rock', 'Sea Serpent', 'Spellcaster', 'Thunder', 'Warrior', 'Winged Beast', 'Wyrm', 'Zombie'];
+            var link = {TopLeft : false, TopCenter : false, TopRight : false, MiddleLeft : false, MiddleRight : false, BottomLeft : false, BottomCenter : false, BottomRight : false};
+            var cardType = $('#cardType');
+            var subType = $('#subtype');
+            var cardBorder = $('#cardBorder');
+            var monsterRace = $('#monsterRace');
+            var cardName = $('#cardName');
+            var setIdA = $('#setIdA');
+            var setIdB = $('#setIdB');
+            var description = $('#description');
+            var atk = $('#atk');
+            var def = $('#def');
+            var serialNum = $('#serialNum');
+            var lblCardName = $('#lblCardName');
+            var lblAttributes = $('#lblAttributes');
+            var lblDescription = $('#lblDescription');
+            var lblAtk = $('#lblAtk');
+            var lblDef = $('#lblDef');
+            var lblSerialNum = $('#lblSerialNum');
+            var lblSetNum = $('#lblSetNum');
+            var cardAttribute = $('#cardAttribute');
+            var attribute = $('#attribute');
+            var level = $('#level');
+            var lblLevel = $('#lblLevel');
+            var rank = $('#rank');
+            var lblRank = $('#lblRank');
+            var TopLeft = $('#TopLeft');
+            var TopCenter = $('#TopCenter');
+            var TopRight = $('#TopRight');
+            var MiddleLeft = $('#MiddleLeft');
+            var MiddleRight = $('#MiddleRight');
+            var BottomLeft = $('#BottomLeft');
+            var BottomCenter = $('#BottomCenter');
+            var BottomRight = $('#BottomRight');
+            var linkTopLeft = $('#linkTopLeft');
+            var linkTopCenter = $('#linkTopCenter');
+            var linkTopRight = $('#linkTopRight');
+            var linkMidLeft = $('#linkMidLeft');
+            var linkMidRight = $('#linkMidRight');
+            var linkBottomLeft = $('#linkBottomLeft');
+            var linkBottomCenter = $('#linkBottomCenter');
+            var linkBottomRight = $('#linkBottomRight');
+            var trapSpellType = $('#trapSpellType');
+            var pendulumScale = $('#pendulumScale');
+            var spellDescription = $('#spelldescription');
+            var lblSpellDescription = $('#lblSpellDescription');
+            var lblPendulumScale = $('.lblPendulumScale');
+            var trapSpellTitle = $('#trapSpellTitle');
+            var normalMonster =  $('#normalMonster');
+            
+            $(function() {
+                setSubTypeItems();
+                monsterRaceItems();
+                linkPointsReset('point');
+
+                makeCard();
+            });
+
+            $('#cardType, #subtype, #attribute, #monsterRace, #level, #rank').change(function() {
+                makeCard();
+    
+            });
+
+            $('#trapSpellType').change(function() {
+                setTrapSpellTitle();
+            });
+
+            $('#normalMonster').change(function() {
+                makeCard();
+            });
+
+            function setborder(cardtype,subtype){
+                var border = (cardtype == 'monster') ? 'effect' : cardtype;
+                var isPendulum = true;
+                if(cardtype == 'spell' || cardtype == 'trap'){
+                    setMonsterAttribute('');
+                    setTrapSpellTypeItems(cardtype);
+                    isPendulum = false;
+                    setTrapSpellTitle();
+                }else if(cardtype == 'ritual' || cardtype == 'link' ){
+                    subType.find("option[value='pendulum']").remove();
+                    isPendulum = false;
+                }else{
+                    if(!$("#subtype option[value='pendulum']").length > 0)
+                        subType.append('<option value="pendulum">Pendulum</option>');
+                }
+
+                if(subtype == 'pendulum' && isPendulum){
+                    border = 'pendulum'+border;
+                }
+                    
+
+                console.log(border);
+                cardBorder.attr('src','img/borders/'+border+'.png');
+            }
+
+            function setSubTypeItems(){
+                subType.html('');
+                for(i = 0; i < subTypeArr.length; i++){
+                    subType.append('<option value="'+subTypeArr[i].toLowerCase()+'">'+subTypeArr[i]+'</option>');
+                }
+            }
+
+            function monsterRaceItems(){
+                monsterRace.html('');
+                for(i = 0; i < monsterRaceArrr.length; i++){
+                    monsterRace.append('<option value="'+monsterRaceArrr[i].toLowerCase()+'">'+monsterRaceArrr[i]+'</option>');
+                }
+            }
+
+            function setLbl(){
+                lblCardName.html(cardName.val());
+                lblSetNum.html(setIdA.val()+'-'+setIdB.val());
+                lblDescription.html(description.val());
+                lblAtk.html(atk.val());
+                lblDef.html(def.val());
+                lblSerialNum.html(serialNum.val());    
+                lblSpellDescription.html(spellDescription.val());
+                lblPendulumScale.html(pendulumScale.val());
+            }
+
+            function generateSerialNum(){
+                serialNum.val(Math.floor(Math.random()*90000000) + 10000000);
+                setLbl();
+            }
+
+            function setMonsterAttribute(attribute){
+                if(attribute != ''){
+                    cardAttribute.show();
+                    cardAttribute.attr('src','img/attributes/'+attribute+'.png');
+                }else{
+                    cardAttribute.hide();
+                }
+            }
+
+            function setCardAttribute(){
+                var Mtype = (cardType.val() != 'monster') ? cardType.val() : ''; 
+                var Mtype2 = ($('#normalMonster').is(":checked")) ? 'normal' : 'effect'; 
+                var mRace = (cardType.val() == 'trap' || cardType.val() == 'spell') ? '' : monsterRace.val();
+                lblAttributes.html('['+mRace+' '+Mtype+' '+subType.val()+' '+Mtype2+']');
+            }
+
+            function setLvl(lvl){
+                lblLevel.html('');
+                for(var i = 0; i < lvl; i++){   
+                    lblLevel.append('<img src="img/lvl/lvl.png">');
+                }
+            }
+
+            function setRank(rank){
+                lblRank.html('');
+                for(var i = 0; i < rank; i++){
+                    lblRank.append('<img src="img/lvl/lvl2.png">');
+                }
+            }
+            
+            function initLinkPoints(){
+                link.TopLeft = TopLeft.is(":checked");
+                link.TopCenter = TopCenter.is(":checked");
+                link.TopRight = TopRight.is(":checked");
+                link.MiddleRight = MiddleRight.is(":checked");
+                link.MiddleLeft = MiddleLeft.is(":checked");
+                link.BottomLeft = BottomLeft.is(":checked");
+                link.BottomCenter = BottomCenter.is(":checked");
+                link.BottomRight = BottomRight.is(":checked");
+
+                if(!TopLeft.is(":checked")){
+                    linkTopLeft.hide();
+                }else{
+                    linkTopLeft.show();
+                }
+
+                if(!TopCenter.is(":checked")){
+                    linkTopCenter.hide();
+                }else{
+                    linkTopCenter.show();
+                }
+
+                if(!TopRight.is(":checked")){
+                    linkTopRight.hide();
+                }else{
+                    linkTopRight.show();
+                }
+
+                if(!MiddleLeft.is(":checked")){
+                    linkMidLeft.hide();
+                }else{
+                    linkMidLeft.show();
+                }
+
+                if(!MiddleRight.is(":checked")){
+                    linkMidRight.hide();
+                }else{
+                    linkMidRight.show();
+                }
+
+                if(!BottomLeft.is(":checked")){
+                    linkBottomLeft.hide();
+                }else{
+                    linkBottomLeft.show();
+                }
+
+                if(!BottomCenter.is(":checked")){
+                    linkBottomCenter.hide();
+                }else{
+                    linkBottomCenter.show();
+                }
+
+                if(!BottomRight.is(":checked")){
+                    linkBottomRight.hide();
+                }else{
+                    linkBottomRight.show();
+                }
+                
+                console.log(link);
+            }
+
+            function linkPointsReset(reset){
+                if(reset == 'checkbox'){
+                    TopLeft.prop('checked', false);
+                    TopCenter.prop('checked', false);
+                    TopRight.prop('checked', false);
+                    MiddleLeft.prop('checked', false);
+                    MiddleRight.prop('checked', false);
+                    BottomLeft.prop('checked', false);
+                    BottomCenter.prop('checked', false);
+                    BottomRight.prop('checked', false);
+                }else if(reset == 'point'){
+                    linkTopLeft.hide();
+                    linkTopCenter.hide();
+                    linkTopRight.hide();
+                    linkMidLeft.hide();
+                    linkMidRight.hide();
+                    linkBottomLeft.hide();
+                    linkBottomCenter.hide();
+                    linkBottomRight.hide();
+                }else if(reset == 'disabled' || reset == 'enabled'){
+                    var isDisabled = (reset == 'disabled') ? true : false;
+                    TopLeft.prop('disabled', isDisabled);
+                    TopCenter.prop('disabled', isDisabled);
+                    TopRight.prop('disabled', isDisabled);
+                    MiddleLeft.prop('disabled', isDisabled);
+                    MiddleRight.prop('disabled', isDisabled);
+                    BottomLeft.prop('disabled', isDisabled);
+                    BottomCenter.prop('disabled', isDisabled);
+                    BottomRight.prop('disabled', isDisabled);
+                }
+            }
+
+            function setTrapSpellTypeItems(items){
+                var items = (items == 'spell') ? ['Normal','Continuous','Equip','Field','Quick-Play','Ritual'] : ['Normal','Continuous','Counter'];
+                    trapSpellType.html('');
+                    for(i = 0; i < items.length; i++){
+                        trapSpellType.append('<option value="'+items[i]+'">'+items[i]+'</option>');
+                    }
+            }
+
+            function setTrapSpellTitle(){
+                if(cardType.val() == 'trap' || cardType.val() == 'spell'){
+                    trapSpellTitle.html('['+cardType.val()+' '+trapSpellType.val().toLowerCase()+']');
+                }else{
+                    trapSpellTitle.html('');
+                }
+            }
+
+            function yugiohCardLogic(){
+                formReset('enabled');
+                lblSetNum.removeClass("lblSetNum2").addClass("lblSetNum");
+
+                if(cardType.val() == 'trap' || cardType.val() == 'spell'){
+                    subType.val('');
+                    normalMonster.prop('checked', false);
+                    level.val('0');
+                    rank.val('0');
+                    linkPointsReset('checkbox');
+                    linkPointsReset('point');
+                    pendulumScale.val('');
+                    spellDescription.val('');
+                    atk.val('');
+                    def.val('');
+
+                    subType.prop("disabled", true);
+                    normalMonster.prop("disabled", true);
+                    level.prop("disabled", true);
+                    rank.prop("disabled", true);
+                    monsterRace.prop("disabled", true);
+                    pendulumScale.prop("disabled", true);
+                    spellDescription.prop("disabled", true);
+                    atk.prop("disabled", true);
+                    def.prop("disabled", true);
+                    attribute.prop("disabled", true);
+                    linkPointsReset('disabled');
+                }else{
+                    trapSpellTitle.html('');
+                    trapSpellType.prop("disabled", true);
+                    rank.prop("disabled", true);
+                    linkPointsReset('checkbox');
+                    linkPointsReset('point');
+                    linkPointsReset('disabled');
+                    pendulumScale.val('');
+                    spellDescription.val('');
+                    lblSpellDescription.html('');
+                    pendulumScale.prop("disabled", true);
+                    spellDescription.prop("disabled", true);
+
+                    if(cardType.val() == 'link'){
+                        level.val('0');
+                        level.prop("disabled", true);
+                        linkPointsReset('enabled');
+                    }
+
+                    if(cardType.val() == 'xyz'){
+                        level.val('0');
+                        level.prop("disabled", true);
+                        rank.prop("disabled", false);
+                    }else{
+                        rank.val('0');
+                    }
+                    
+
+                    if(subType.val() == 'pendulum'){
+                        pendulumScale.prop("disabled", false);
+                        spellDescription.prop("disabled", false);
+                        lblSetNum.removeClass("lblSetNum").addClass("lblSetNum2");
+                    }
+                }
+            }
+
+            function formReset(action){
+                if(action == 'disabled' || action == 'enabled'){
+                    var isDisabled = (action == 'disabled') ? true : false;
+                    cardName.prop("disabled", isDisabled);
+                    cardType.prop("disabled", isDisabled);
+                    subType.prop("disabled", isDisabled);
+                    normalMonster.prop("disabled", isDisabled);
+                    attribute.prop("disabled", isDisabled);
+                    trapSpellType.prop("disabled", isDisabled);
+                    setIdA.prop("disabled", isDisabled);
+                    setIdB.prop("disabled", isDisabled);
+                    level.prop("disabled", isDisabled);
+                    rank.prop("disabled", isDisabled);
+                    monsterRace.prop("disabled", isDisabled);
+                    pendulumScale.prop("disabled", isDisabled);
+                    spellDescription.prop("disabled", isDisabled);
+                    description.prop("disabled", isDisabled);
+                    atk.prop("disabled", isDisabled);
+                    def.prop("disabled", isDisabled);
+                    serialNum.prop("disabled", isDisabled);
+                    linkPointsReset(action);
+                }
+            }
+            
+            function saveCard(){
+                if(cardName.val() == ""){
+                    alert('Please Set Card Name');
+                }else if(serialNum.val() == ""){
+                    alert('Please Set Serial Number');
+                }else{
+                    $.post('/form.php', serializedData, function(response) {
+                        
+                    });
+                }
+            }
+
+            function makeCard(){
+                setMonsterAttribute(attribute.val());
+                setborder(cardType.val(),subType.val());
+                yugiohCardLogic();
+                setCardAttribute();
+                setLvl(level.val());
+                setRank(rank.val());
+            }
+        </script>
+    </body>
+</html>
